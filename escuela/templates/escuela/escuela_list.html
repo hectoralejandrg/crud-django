@@ -4,26 +4,26 @@
 <div class="m-3">
     <div class="card">
         <div class="card-header">
-            <a href="{% url 'student:new_class' %}" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Agregar Clase</a>
+            <a href="{% url 'escuela:new_escuela' %}" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Agregar Clase</a>
         </div>
         <div class="card-body">
             <table class="table">
                 <thead>
                 <tr>
                     <th scope="col">Nombres</th>
-                    <th scope="col">Materia</th>
-                    <th scope="col">Description</th>
+                    <th scope="col">Direccion</th>
+                    <th scope="col">Distrito</th>
                     <th scope="col">Acción</th>
                 </tr>
                 </thead>
                 <tbody>
-                {% for class in classes %}
+                {% for escuela in escuelas %}
                 <tr>
-                    <td>{{class.name}}</td>
-                    <td>{{class.subject}}</td>
-                    <td>{{class.description}}</td>
+                    <td>{{escuela.name}}</td>
+                    <td>{{escuela.address}}</td>
+                    <td>{{escuela.district}}</td>
                     <td class="text-center">
-                        <a href="{% url 'student:detail_class' class.id %}">
+                        <a href="{% url 'escuela:detail_escuela' escuela.id %}">
                             <i class="fa fa-list-alt" aria-hidden="true"></i>
                         </a>
                     </td>

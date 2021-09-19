@@ -2,11 +2,22 @@
 
 {% block content %}
 <ul class="list-group m-3">
+    {{object.escuela.clase}}
     <li class="list-group-item">{{object.name}} {{object.lastname}}</li>
     <li class="list-group-item">{{object.address}}</li>
     <li class="list-group-item">{{object.dob}}</li>
     <li class="list-group-item">{{object.email}}</li>
     <li class="list-group-item">{{object.phone}}</li>
+
+    <ul class="list-group m-3">
+        <p>Escuela:</p>
+        <li class="list-group-item">{{object.escuela.name}}</li>
+        <br>
+        <p>Clases:</p>
+        {% for clase in object.clase.all %}
+            <li class="list-group-item">{{clase.name}}</li>
+        {% endfor %}
+    </ul>
     <form method="post" action="{% url 'student:delete' object.id %}">
         {% csrf_token %}
         <li class="list-group-item">

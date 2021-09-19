@@ -1,0 +1,38 @@
+{% extends 'student/base.html' %}
+
+{% block content %}
+<div class="m-3">
+    <div class="card">
+        <div class="card-header">
+            <a href="{% url 'clase:new_clase' %}" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Agregar Clase</a>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">Materia</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Acción</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for clase in clases %}
+                <tr>
+                    <td>{{clase.name}}</td>
+                    <td>{{clase.subject}}</td>
+                    <td>{{clase.description}}</td>
+                    <td class="text-center">
+                        <a href="{% url 'clase:detail_clase' clase.id %}">
+                            <i class="fa fa-list-alt" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
